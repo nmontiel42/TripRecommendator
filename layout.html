@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Sugerencias de Viaje</title>
+    <title>Sugerencias de Viaje</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="styles.css">
@@ -15,16 +15,21 @@
         <button type="submit">Enviar</button>
     </form>
     <div id="response"></div>
-    <div id="map"></div>
+    <div id="map"></div> <!-- Mapa aquí -->
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        const map = L.map('map').setView([20, 0], 2); // Centra el mapa en una posición inicial (latitud, longitud)
-    
-        // Capa de mapas de OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-    
+        let map;
+        let markersLayer; // Capa para los marcadores
+
+        // Inicializar el mapa
+        function initializeMap() {
+            map = L.map('map').setView([20.0, 0.0], 2); // Centro del mapa y zoom
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(map);
+        }
+
         document.getElementById('promptForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const formData = new FormData(this);
@@ -41,27 +46,32 @@
             
             const data = await response.json();
             responseDiv.innerText = data.suggestion || 'No se encontraron sugerencias.';
-    
-            // Ejemplo de destinos (esto deberías reemplazarlo con los destinos que obtengas de la API)
-            const destinations = [
-                { name: "Playa Bonita", lat: 10, lng: -85 }, // Ejemplo de coordenadas
-                { name: "Montaña Verde", lat: 35, lng: -100 }
-            ];
-    
-            // Limpia los marcadores anteriores
-            map.eachLayer((layer) => {
-                if (layer instanceof L.Marker) {
-                    map.removeLayer(layer);
+            displayMap(data.destinations); // Llama a la función para mostrar los destinos en el mapa
+        });
+
+        function displayMap(destinations) {
+            // Limpia los marcadores existentes
+            if (markersLayer) {
+                map.removeLayer(markersLayer);
+            }
+            markersLayer = L.layerGroup().addTo(map); // Nueva capa para los marcadores
+
+            // Agrega marcadores para cada destino
+            destinations.forEach(destination => {
+                if (destination.coords) {
+                    const coords = destination.coords; // Obtener las coordenadas del destino
+                    L.marker(coords).addTo(markersLayer).bindPopup(destination.name); // Usar destination.name para el marcador
                 }
             });
-    
-            // Añade marcadores al mapa
-            destinations.forEach(destination => {
-                L.marker([destination.lat, destination.lng]).addTo(map)
-                    .bindPopup(destination.name);
-            });
-        });
+
+            // Ajusta el mapa para mostrar todos los marcadores
+            if (destinations.length > 0) {
+                const bounds = L.latLngBounds(destinations.map(d => d.coords));
+                map.fitBounds(bounds);
+            }
+        }
+
+        initializeMap(); // Inicializa el mapa al cargar la página
     </script>
-    
 </body>
 </html>
