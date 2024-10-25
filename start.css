@@ -33,6 +33,10 @@ button {
 
 .dancing-script {
   font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  color: whitesmoke;
 }
 
 h3 {
