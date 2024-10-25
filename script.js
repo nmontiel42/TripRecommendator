@@ -1,3 +1,3 @@
 function redirectToPage() {
-	window.location.href = 'index.html'; // Redirige a destination.html
+	window.location.href = 'layout.html'; // Redirige a destination.html
 }

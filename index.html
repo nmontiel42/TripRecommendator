@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Sugerencias de Viaje</title>
+    <title>TripRecommendator</title>
+	<link rel="stylesheet" href="start.css">
 </head>
 <body>
-    <h1>Bienvenido a la API de Sugerencias de Viaje</h1>
-    <form id="promptForm">
-        <textarea name="prompt" rows="4" cols="50" placeholder="Escribe tu descripción de viaje aquí..."></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <div id="response"></div>
-    <script>
-        document.getElementById('promptForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const prompt = formData.get('prompt');
-            const responseDiv = document.getElementById('response');
-            
-            const response = await fetch('/generate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ prompt }),
-            });
-            
-            const data = await response.json();
-            responseDiv.innerText = data.suggestion || 'No se encontraron sugerencias.';
-        });
-    </script>
+
+	<div class="container">
+
+		<header class="header">
+			<img src="assets/fondo2.jpg" alt="fondo">
+		</header>
+
+		<main class="main-content">
+			<button onclick="redirectToPage()">Start</button>	
+		</main>
+
+	</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
