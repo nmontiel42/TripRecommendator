@@ -51,7 +51,7 @@ app.post('/generate', async (req, res) => {
             const suggestionText = json.candidates[0].content.parts[0].text;
 
             // Aquí puedes agregar palabras comunes a ignorar
-            const commonWords = ["para", "cada", "y", "o", "el", "la", "en", "de", "que", "es", "un", "una", "si"];
+            const commonWords = ["para", "cada", "y", "o", "el", "la", "en", "de", "que", "es", "un", "una", "si", "Te"];
 
             // Extraer destinos
             const destinations = suggestionText.match(/(?:\b[A-Z][a-záéíóúüñ]*\b(?:\s+[A-Z][a-záéíóúüñ]*\b)*)+/g) || [];
