@@ -2,3 +2,16 @@
 #map {
     height: 400px; /* Altura del mapa */
 }
+
+h1 {
+    text-align: center;
+
+}
+
+.dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: black;
+}
