@@ -12,13 +12,20 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="dancing-script">Bienvenido a la API de Sugerencias de Viaje</h1>
-    <form id="promptForm">
-        <textarea name="prompt" rows="4" cols="50" placeholder="Escribe tu descripción de viaje aquí..."></textarea><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <div id="response"></div>
-    <div id="map"></div> <!-- Mapa aquí -->
+    <h1 class="dancing-script">TripRecommendator</h1>
+
+	<div class="container">
+    	<form id="promptForm">
+    	    <textarea name="prompt" rows="4" cols="50" placeholder="Escribe tu descripción de viaje aquí..."></textarea><br>
+    	    <button type="submit">Enviar</button>
+    	</form>
+		<div id="response"></div>
+		<div id="map"></div> <!-- Mapa aquí -->
+	</div>
+    
+    <footer>
+		<p>© Todos los derechos reservados.</p>
+	</footer>
     
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="script.js"></script>

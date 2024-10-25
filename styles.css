@@ -1,3 +1,12 @@
+html, body {
+	background: linear-gradient(180deg, #ffad81, #ff81b1);
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
 
 #map {
     height: 400px; /* Altura del mapa */
@@ -14,4 +23,70 @@ h1 {
     font-weight: bold;
     font-style: normal;
     color: black;
+}
+
+.container {
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    background-color: #ffffff32;
+    width: 100%;
+	max-width: 320px;
+    margin: 10px auto;
+}
+
+#promptForm {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos verticalmente */
+    gap: 10px; /* Espacio entre los elementos del formulario */
+	max-width: 300px;
+}
+
+textarea {
+    border: 1px solid #ccc; /* Borde del textarea */
+    border-radius: 8px; /* Bordes redondeados para el textarea */
+    padding: 10px; /* Espacio interno dentro del textarea */
+    resize: none; /* Evita que el textarea se pueda redimensionar */
+	width: 100%;
+}
+
+button {
+	
+    background-color: #ff81b1; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados para el botón */
+    padding: 10px 15px; /* Espacio interno en el botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+	width: auto;
+	align-self: center;
+}
+
+button:hover {
+    background-color: #ff81b1; /* Color de fondo del botón al pasar el mouse */
+}
+
+#response {
+    border-radius: 16px;
+    padding: 10px;
+    margin: 20px auto 0; /* Centra horizontalmente y añade espacio arriba */
+    width: 100%; /* Asegura que #response use todo el ancho disponible */
+    max-width: 280px; /* Ancho máximo para centrar mejor en el contenedor */
+}
+
+#map {
+    border-radius: 16px;
+    border: 2px solid #ccc; /* Grosor, estilo y color del borde */
+}
+
+
+footer {
+    position: fixed; /* Fija el footer en la pantalla */
+    bottom: 0; /* Lo coloca en la parte inferior de la ventana */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    background-color: #ffffff34; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-align: center; /* Centra el texto en el footer */
+    padding: 10px 0; /* Espacio arriba y abajo del texto */
+    font-size: 14px;
 }
