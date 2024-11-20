@@ -1,0 +1,10 @@
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - API_KEY=${API_KEY} # Asegúrate de tener la clave API en tu archivo .env

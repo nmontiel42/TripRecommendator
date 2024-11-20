@@ -1,14 +1,10 @@
-# Makefile para gestionar procesos en el puerto 3000
-
-.PHONY: clean
-
 up:
-	node server.js
+	docker-compose up --build
 
+# Comando para detener y eliminar todos los contenedores e imágenes
 clean:
-	@echo "Buscando procesos en el puerto 3000..."
-	@pid=$$(lsof -t -i:3000) && [ -n "$$pid" ] && kill -9 $$pid || echo "No hay procesos en el puerto 3000."
+	docker-compose down --rmi all
 
 re:
-	make clean
-	make up
+	docker-compose down --rmi all
+	docker-compose up --build

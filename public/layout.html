@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Suggestions</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google Fonts for Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="header">
+        <h1>TripRecommendator</h1>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Travel Description Form -->
+        <form id="promptForm" class="form-container">
+            <textarea name="prompt" rows="4" cols="50" placeholder="Write your travel description here..."></textarea><br>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div id="loading" style="display: none;">Loading...</div>
+
+        <!-- Response Section -->
+        <div id="response" class="response-container"></div>
+        
+        <!-- Error Message Section -->
+        <div id="error-message" style="display: none; color: red; font-weight: bold; margin-top: 10px;"></div>
+
+        <!-- Map Section -->
+        <div id="map" class="map-container"></div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© All rights reserved.</p>
+    </footer>
+
+    <!-- External Script for Map and Functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
