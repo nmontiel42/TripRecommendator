@@ -1,4 +1,4 @@
-# HOW TO USE:
+# HOW TO USE IT:
 ### Make
 Build and lift the containers
 ### Make clean
